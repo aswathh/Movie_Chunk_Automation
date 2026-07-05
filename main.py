@@ -1,14 +1,3 @@
-"""
-main.py
--------
-CLI entry point.
-
-Usage:
-    python main.py --input movie.mp4 --output ./output --duration 60
-
-Run `python main.py --help` for all options.
-"""
-
 import argparse
 import logging
 import sys
