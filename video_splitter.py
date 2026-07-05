@@ -1,25 +1,3 @@
-"""
-video_splitter.py
-------------------
-Core engine: takes a SplitterConfig, computes segment boundaries,
-builds the correct ffmpeg command for each part (split + text overlay
-in a single pass), and executes them - optionally in parallel.
-
-Design notes:
-- Splitting and text overlay happen in ONE ffmpeg call per part (not two
-  passes) to avoid double re-encoding, which would degrade quality and
-  waste time.
-- Video is re-encoded (drawtext requires it) using CRF-based x264, which
-  is visually lossless at crf<=18 and much smaller/faster than the
-  source's original bitrate would suggest. Audio is stream-copied when
-  possible to avoid any audio quality loss or extra processing time.
-- Parallelism: each ffmpeg process is single-threaded-ish by default but
-  can use multiple cores internally (x264 uses several threads per job).
-  Running N jobs concurrently on a multi-core machine is generally the
-  fastest configuration; max_workers should be tuned to (cpu_count / 2)
-  as a starting point.
-"""
-
 import logging
 import math
 from concurrent.futures import ThreadPoolExecutor, as_completed
