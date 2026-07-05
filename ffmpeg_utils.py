@@ -1,12 +1,3 @@
-"""
-ffmpeg_utils.py
----------------
-Thin, dependency-free wrappers around the ffmpeg / ffprobe CLI tools.
-We shell out directly instead of using a Python binding (e.g. ffmpeg-python)
-to keep full control over performance flags and avoid an extra abstraction
-layer that can hide errors.
-"""
-
 import json
 import shutil
 import subprocess
