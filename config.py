@@ -1,11 +1,3 @@
-"""
-config.py
----------
-Central configuration for the Movie Splitter pipeline.
-Keeping all tunables in one dataclass makes the tool easy to
-extend (e.g. add a web UI or CLI flags) without touching core logic.
-"""
-
 from dataclasses import dataclass
 from pathlib import Path
 
